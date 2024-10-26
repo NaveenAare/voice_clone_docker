@@ -1,0 +1,17 @@
+[Unit]
+Description=My Flask App
+After=network.target
+
+[Service]
+User=your_username          # Replace with your Linux username
+ExecStart=/bin/bash /home/your_username/setup_flask_app.sh
+Restart=always
+WorkingDirectory=/home/your_username/voice_cloning
+
+[Install]
+WantedBy=multi-user.target
+
+
+[Unit]
+Description=Gunicorn instance to serve flask_app
+After=network.target
